@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Dialog, DialogContent, DialogTrigger, DialogFooter } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTrigger, DialogFooter, DialogTitle } from '@/components/ui/dialog';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -94,8 +94,12 @@ export default function UserSetAccountProfileActiveState() {
                     </DialogTrigger>
 
                     <DialogContent>
+                        <DialogTitle>Upload Profile Photo</DialogTitle> 
+
                         <div className="flex flex-col items-center gap-4">
                             <p className="text-center">Drag and drop or click to upload a profile photo (Minimum 250x250)</p>
+
+                            {/* Custom file input */}
                             <Input type="file" accept="image/*" onChange={handleImageChange} />
 
                             <div className="text-center mt-4">
@@ -106,6 +110,7 @@ export default function UserSetAccountProfileActiveState() {
                             </div>
                         </div>
 
+                        {/* Footer */}
                         <DialogFooter className="mt-6 flex justify-between">
                             <Button variant="outline" onClick={() => setIsModalOpen(false)}>
                                 Cancel
@@ -115,7 +120,6 @@ export default function UserSetAccountProfileActiveState() {
                             </Button>
                         </DialogFooter>
                     </DialogContent>
-
                 </Dialog>
             </div>
 
